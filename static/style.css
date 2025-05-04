@@ -1,0 +1,101 @@
+body {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the element */
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #444;
+}
+
+h2{
+    border-bottom: 2px solid #ddd;
+}
+
+.slots {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.slot {
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size : 17px;
+}
+
+.slot.available {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+    border-left: 5px solid #28a745;
+}
+
+.slot.booked {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+    border-left: 5px solid #dc3545;
+}
+
+.user-actions,
+.admin-actions {
+    margin-top: 20px;
+}
+
+form {
+    margin: 10px 0;
+}
+
+input {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.signup-link {
+     margin-top: 15px;
+     font-size: 14px;
+}
+
+.signup-link a {
+    color: #dec400;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+     text-decoration: underline;
+}

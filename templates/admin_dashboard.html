@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/admin_dash.css">
+</head>
+
+<body>
+
+<button class="back-btn" onclick="window.location.href='/'">
+    <i class="fa fa-arrow-left"></i> Back to Dashboard
+</button>
+
+<div class="container">
+    <h1>🚗 Admin Dashboard</h1>
+
+    <div class="revenue">
+        💰 Daily Revenue: ₹{{ daily_revenue }}
+    </div>
+
+    <h2>📌 Available Slots</h2>
+    <ul class="slot-container">
+        {% for slot in available_slots %}
+        <li class="available">✅ Slot {{ slot }}: Available</li>
+        {% endfor %}
+    </ul>
+
+    <h2>🚗 Booked Slots</h2>
+    <ul class="slot-container">
+        {% for slot, car in booked_slots.items() %}
+        <li class="booked">❌ Slot {{ slot }}: {{ car }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>📊 Daily Revenue Over Time</h2>
+    <div class="revenue-graph">
+        <img src="data:image/png;base64,{{ graph_url }}" alt="Daily Revenue Trend">
+    </div>
+
+    <h2>📜 Parked History</h2>
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: left;">
+        <thead>
+        <tr>
+            <th>Car Number</th>
+            <th>Slot</th>
+            <th>Check-in Time</th>
+            <th>Check-out Time</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in parked_history %}
+        <tr>
+            <!-- Handling None or empty values gracefully -->
+            <td>{{ entry['car_number'] if entry['car_number'] else '-' }}</td>
+            <td>{{ entry['slot'] if entry['slot'] else '-' }}</td>
+            <td>{{ entry['check_in'] if entry['check_in'] and entry['check_in'] != '' else '-' }}</td>
+            <td>{{ entry['check_out'] if entry['check_out'] and entry['check_out'] != '' else '-' }}</td>
+            <td>{{ entry['cost'] if entry['cost'] and entry['cost'] != '' else '-' }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5" style="text-align: center;">No parked history available.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+</html>

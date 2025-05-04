@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/adminlogin_css.css">
+    <title>🚗 Admin Login</title>
+</head>
+<body>
+<button class="back-btn" onclick="window.location.href='/'">
+    <i class="fa fa-arrow-left"></i> <!-- Arrow icon -->
+    Back to Dashboard
+</button>
+
+<div class="container">
+    <div class="icon">🚗</div>
+    <h1>Admin Login</h1>
+
+    <!-- Display error message if exists -->
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form action="/admin" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <p class="signup-link">Don't have an account? <a href="/signup">Sign up here</a></p>
+</div>
+</body>
+</html>

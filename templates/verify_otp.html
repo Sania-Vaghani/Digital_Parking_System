@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/phone_verification.css">
+  <title>📱 Phone Verification</title>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="window.location.href='/'">
+  <i class="fa fa-arrow-left"></i> Back to Dashboard
+</button>
+
+<div class="container">
+  <div class="icon">📱</div>
+  <h1>Phone Verification</h1>
+  <p class="info">Enter your phone number to receive an OTP.</p>
+
+  {% if error %}
+  <p class="error">{{ error }}</p>
+  {% endif %}
+
+  <form method="POST" action="{{ url_for('verify_otp') }}">
+    <input type="text" name="phone" placeholder="Enter Phone Number" required>
+    <button type="submit">Send OTP</button>
+  </form>
+
+</div>
+
+</body>
+
+</html>

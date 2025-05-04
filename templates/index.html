@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Car Parking System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<div class="container">
+    <h1>🚗 ParkNGO </h1>
+
+    <!-- Parking Slots Visualization -->
+    <div class="slots">
+        {% for i in range(1, 21) %}
+        <div class="slot {% if slots[i] %}booked{% else %}available{% endif %}">
+            <span>Slot {{ i }}</span>
+            {% if slots[i] %}
+            <br><small>Car: {{ slots[i] }}</small>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- User Actions -->
+    <div class="user-actions">
+        <h2>🔹 User Actions</h2>
+        <form action="/park" method="POST">
+            <input type="text" name="car_number" placeholder="Enter Car Number" required>
+            <button type="submit">Park Car</button>
+        </form>
+
+        <form action="/checkout" method="POST">
+            <input type="text" name="car_number" placeholder="Enter Car Number" required>
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+
+    <!-- Admin Section -->
+    <div class="admin-actions">
+        <h2>🔐 Admin Login</h2>
+        <form action="/admin" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="/signup">Sign up here</a></p>
+    </div>
+</div>
+</body>
+
+</html>
