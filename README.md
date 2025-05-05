@@ -52,9 +52,6 @@ DB_PASSWORD=your_db_password
 DB_NAME=parking_system
 ```
 
-## Screenshots
-_Add screenshots or UI images here if available._
-
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
